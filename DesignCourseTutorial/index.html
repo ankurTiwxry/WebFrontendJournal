@@ -1,28 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- header -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoeboxx</title>
+
+    <!-- Adding the links for Poppins font here -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
+
+<!-- body -->
 <body>
+    <!-- container for the background image;
+    it is a special case as we want the image 
+    to spill out of the main "wrapper" container-->
     <div class="hero-img"></div>
+
+    <!-- this is the wrapper container; 
+    all of the main content lies inside -->
     <div class="wrapper">
 
-        <!-- Navigation bar -->
+        <!-- Header for the content;
+        this is different from <head></head>; 
+        header is part of "sematic markups"; 
+        as in this is a verbose style of HTML scripting -->
         <header>
             <a href="#" class="logo">Shoe<span>boxx</span></a>
             
+            <!-- navigation bar at the top -->
+            <!-- this and the menu icons are 
+            toggled/activated selctively based on 
+            screen size using css media queries -->
             <nav>
+                <!--close button shown on clicking the 
+                menu button on the mobile version -->
                 <svg class="close" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16 2C8.2 2 2 8.2 2 16C2 23.8 8.2 30 16 30C23.8 30 30 23.8 30 16C30 8.2 23.8 2 16 2ZM21.4 23L16 17.6L10.6 23L9 21.4L14.4 16L9 10.6L10.6 9L16 14.4L21.4 9L23 10.6L17.6 16L23 21.4L21.4 23Z" fill="black"/>
                 </svg>
 
+                <!-- other pages as links 
+                displayed as a drop-down list
+                on mobile and as a horizontal
+                list on bigger screens using css-->
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Sneaker</a></li>
@@ -30,12 +55,13 @@
                 </ul>
             </nav>
 
+            <!-- menu button -->
             <svg class="menu "viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24 32H0V26.6667H24V32ZM48 18.6667H0V13.3333H48V18.6667ZM48 5.33333H24V0H48V5.33333Z" fill="white"/>
             </svg>
         </header>
 
-        <!-- Section 2 -->
+        <!-- Section 2 : landing page -->
         <section class="hero">
             <h1>Lorem ipsum dolor sit amet consectetur.</h1>
             <p class="subhead">Iusto nihil exercitationem enim quia officiis voluptatum voluptates animi quasi saepe omnis!</p>
@@ -44,7 +70,7 @@
                 </svg>
         </section>
 
-        <!-- Section 3 -->
+        <!-- Section 3 : item descriptions -->
         <section class="more-info">
             <div class="feature">
                 <div class="content">
@@ -69,15 +95,18 @@
             </div>
         </section>
     </div>
+    
 
     <!-- Doing Javascript inside the HTML file for now -->
     <script>
-        // these variables are there to clean code clutter 
+        // Note that comments are defined with // and not <!-- xyz --> anymore
+
+        // these variables are defined to write cleaner code later 
         const menu = document.querySelector('.menu')
         const close = document.querySelector('.close')
         const nav = document.querySelector('nav')
 
-        // Lambda : Functional programming 
+        // using lambdas for events
         menu.addEventListener('click', () => {
             nav.classList.add('open-nav')
         })
