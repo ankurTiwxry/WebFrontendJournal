@@ -19,6 +19,7 @@ a {
     width: 100%;
     height: 100vh;
     z-index: -1;
+    animation: introLoad 2s forwards;
     //overflow: hidden;
 }
 
@@ -69,7 +70,7 @@ header {
     justify-content: space-between;
 
     svg {
-        width: 3em;
+        width: 2.3em;
         margin-top: -.6em;
     }
 }
@@ -87,12 +88,16 @@ h1 {
 section.hero {
     color: white;
     height: 90vh;
+    animation: moveDown 1s ease-in-out forwards;
+    opacity: 0;
 
     .down-arrow {
         stroke: white;
         position: absolute;
         bottom: 2em;
         width: 1em;
+        animation: moveArrow 1s alternate-reverse infinite;
+
         path {
             fill: white;
         }
@@ -118,7 +123,14 @@ section.hero {
     }
 }
 
-// Media queries
+// Javasscript classes
+.open-nav {
+    transform: translateX(0%);
+}
+
+
+// Media queries -----------------------------------------------------------------------------
+// 680 px -----------------------------------------
 @media only screen and (min-width: 680px) {
     body {
         margin: 1.5em 5em;
@@ -126,6 +138,7 @@ section.hero {
     }
 }
 
+// 920 px -----------------------------------------
 @media only screen and (min-width: 920px) {
     .menu {
         display: none;
@@ -185,6 +198,7 @@ section.hero {
         svg.down-arrow {
             stroke: black;
             position: unset;
+            margin-top: 2em;
 
             path {
                 fill: black;
@@ -223,6 +237,7 @@ section.hero {
     }
 }
 
+// 1200 px -----------------------------------------
 @media only screen and (min-width: 1200px) {
     .wrapper {
         width: 1200px;
@@ -231,5 +246,38 @@ section.hero {
 
     .feature {
         gap: 0;
+    }
+}
+
+// Animations -------------------------------------------------------------------------
+
+// load intro image
+@keyframes introLoad {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+// infinte looping for down arrow bouncing up and down
+@keyframes moveArrow {
+    from {
+        transform: translateY(-30px); 
+    }
+    to {
+        transform: translateY(0); 
+    }
+}
+
+// Hero screen text fade and drop in
+@keyframes moveDown {
+    from {
+        transform: translateY(-100px); 
+    }
+    to {
+        transform: translateY(0); 
+        opacity: 1;
     }
 }

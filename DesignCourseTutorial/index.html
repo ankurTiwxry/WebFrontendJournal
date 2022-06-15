@@ -68,8 +68,25 @@
                 <img src="images/impala_allstars.jpg" alt="Impala Allstars - black">
             </div>
         </section>
-
-
     </div>
+
+    <!-- Doing Javascript inside the HTML file for now -->
+    <script>
+        // these variables are there to clean code clutter 
+        const menu = document.querySelector('.menu')
+        const close = document.querySelector('.close')
+        const nav = document.querySelector('nav')
+
+        // Lambda : Functional programming 
+        menu.addEventListener('click', () => {
+            nav.classList.add('open-nav')
+        })
+
+        close.addEventListener('click', () => {
+            nav.classList.remove('open-nav')
+        })
+
+    </script>
+
 </body>
 </html>
